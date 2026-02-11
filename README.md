@@ -32,9 +32,7 @@ Click an icon in your Obsidian sidebar, and your favorite website opens instantl
 
 ### 🎬 Demo
 
-```
-[Demo GIF or screenshot]
-```
+![Plugin Demo](plugin.gif)
 
 ### 📦 Installation
 
@@ -154,9 +152,7 @@ Obsidianのサイドバーにあるアイコンをクリックすると、好き
 
 ### 🎬 デモ
 
-```
-[デモGIFまたはスクリーンショット]
-```
+![プラグインデモ](plugin.gif)
 
 ### 📦 インストール
 
