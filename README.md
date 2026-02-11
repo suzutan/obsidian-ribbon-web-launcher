@@ -28,6 +28,7 @@ Click an icon in your Obsidian sidebar, and your favorite website opens instantl
 - **Automatic favicons**: Icons load from the website's domain without manual setup
 - **Custom icons**: Use direct image URLs or pick from [Lucide Icons](https://lucide.dev)
 - **Tab management**: Each ribbon icon reuses its own Web Viewer tab
+- **Command palette integration**: Access your links via command palette (Ctrl/Cmd+P)
 - **Instant updates**: Icons appear the moment you save a new link
 
 ### 🎬 Demo
@@ -148,6 +149,7 @@ Obsidianのサイドバーにあるアイコンをクリックすると、好き
 - **ファビコン自動取得**: Webサイトのドメインから自動でアイコンを読み込み
 - **カスタムアイコン**: 画像URLを直接指定、または[Lucide Icons](https://lucide.dev)から選択
 - **タブ管理**: 各リボンアイコンが専用のWeb Viewerタブを再利用
+- **コマンドパレット統合**: コマンドパレット (Ctrl/Cmd+P) からリンクにアクセス
 - **即座に反映**: 新しいリンクを保存した瞬間にアイコンが出現
 
 ### 🎬 デモ

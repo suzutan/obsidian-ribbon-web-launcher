@@ -23,6 +23,7 @@ export default class RibbonUrlLinksPlugin extends Plugin {
 	settings: RibbonUrlLinksSettings;
 	ribbonIcons: HTMLElement[] = [];
 	leafMap: Map<string, WorkspaceLeaf> = new Map();
+	commandIds: Set<string> = new Set();
 
 	async onload() {
 		await this.loadSettings();
@@ -38,6 +39,7 @@ export default class RibbonUrlLinksPlugin extends Plugin {
 		});
 
 		this.refreshRibbonIcons();
+		this.refreshCommands();
 		this.addSettingTab(new RibbonUrlLinksSettingTab(this.app, this));
 	}
 
@@ -45,6 +47,7 @@ export default class RibbonUrlLinksPlugin extends Plugin {
 		this.ribbonIcons.forEach(icon => icon.remove());
 		this.ribbonIcons = [];
 		this.leafMap.clear();
+		this.commandIds.clear();
 	}
 
 	refreshRibbonIcons() {
@@ -119,6 +122,27 @@ export default class RibbonUrlLinksPlugin extends Plugin {
 		});
 
 		this.leafMap.set(linkId, leaf);
+	}
+
+	refreshCommands() {
+		this.settings.links.forEach(link => {
+			if (this.commandIds.has(link.id)) {
+				return;
+			}
+
+			this.addCommand({
+				id: `open-${link.id}`,
+				name: `Open: ${link.label}`,
+				callback: async () => {
+					const currentLink = this.settings.links.find(l => l.id === link.id);
+					if (currentLink) {
+						await this.openUrlInWebViewer(currentLink.id, currentLink.url);
+					}
+				}
+			});
+
+			this.commandIds.add(link.id);
+		});
 	}
 
 	async loadSettings() {
@@ -295,6 +319,7 @@ class RibbonUrlLinksSettingTab extends PluginSettingTab {
 						this.plugin.settings.links.push(link);
 						await this.plugin.saveSettings();
 						this.plugin.refreshRibbonIcons();
+						this.plugin.refreshCommands();
 						this.display();
 					}).open();
 				}));
@@ -318,6 +343,7 @@ class RibbonUrlLinksSettingTab extends PluginSettingTab {
 							this.plugin.settings.links[index] = updatedLink;
 							await this.plugin.saveSettings();
 							this.plugin.refreshRibbonIcons();
+							this.plugin.refreshCommands();
 							this.display();
 						}).open();
 					}))
@@ -328,6 +354,7 @@ class RibbonUrlLinksSettingTab extends PluginSettingTab {
 						this.plugin.settings.links.splice(index, 1);
 						await this.plugin.saveSettings();
 						this.plugin.refreshRibbonIcons();
+						this.plugin.refreshCommands();
 						this.display();
 					}));
 		});

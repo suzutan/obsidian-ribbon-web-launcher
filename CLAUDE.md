@@ -40,10 +40,12 @@ pnpm run version
 
 ### Core Components
 
-- **RibbonUrlLinksPlugin** (src/main.ts:22-131): Main plugin class
+- **RibbonUrlLinksPlugin** (src/main.ts:22-155): Main plugin class
   - `leafMap`: Tracks Web Viewer tabs by link ID for tab reuse
   - `ribbonIcons`: HTMLElement array of ribbon icons
+  - `commandIds`: Set of registered command IDs
   - `refreshRibbonIcons()`: Removes and recreates all ribbon icons from settings
+  - `refreshCommands()`: Registers commands for each link (command palette integration)
   - `openUrlInWebViewer()`: Opens URL in Web Viewer, reusing existing tab if present
 
 - **LinkModal** (src/main.ts:133-266): Modal dialog for add/edit link
