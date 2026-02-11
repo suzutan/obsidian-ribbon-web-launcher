@@ -2,6 +2,7 @@
 logs
 *.log
 npm-debug.log*
+pnpm-debug.log*
 
 # Dependency directories
 node_modules/
@@ -12,10 +13,3 @@ main.js
 
 # Plugin user data
 data.json
-
-# OS
-.DS_Store
-
-# IDE
-.vscode/
-.idea/
