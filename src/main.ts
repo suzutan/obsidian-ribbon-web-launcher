@@ -157,7 +157,7 @@ export default class RibbonUrlLinksPlugin extends Plugin {
 class LinkModal extends Modal {
 	plugin: RibbonUrlLinksPlugin;
 	link: RibbonLink | null;
-	onSave: (link: RibbonLink) => void;
+	onSave: (link: RibbonLink) => void | Promise<void>;
 
 	labelInput: TextComponent;
 	urlInput: TextComponent;
@@ -167,7 +167,7 @@ class LinkModal extends Modal {
 	lucideSettingEl: Setting | null = null;
 	customUrlSettingEl: Setting | null = null;
 
-	constructor(app: App, plugin: RibbonUrlLinksPlugin, link: RibbonLink | null, onSave: (link: RibbonLink) => void) {
+	constructor(app: App, plugin: RibbonUrlLinksPlugin, link: RibbonLink | null, onSave: (link: RibbonLink) => void | Promise<void>) {
 		super(app);
 		this.plugin = plugin;
 		this.link = link;
@@ -178,7 +178,9 @@ class LinkModal extends Modal {
 	onOpen() {
 		const { contentEl } = this;
 
-		contentEl.createEl('h2', { text: this.link ? 'Edit Link' : 'Add New Link' });
+		new Setting(contentEl)
+			.setName(this.link ? 'Edit link' : 'Add new link')
+			.setHeading();
 
 		new Setting(contentEl)
 			.setName('Label')
@@ -302,7 +304,9 @@ class RibbonUrlLinksSettingTab extends PluginSettingTab {
 
 		containerEl.empty();
 
-		containerEl.createEl('h2', { text: 'Ribbon URL Links Settings' });
+		new Setting(containerEl)
+			.setName('Ribbon URL links settings')
+			.setHeading();
 
 		containerEl.createEl('p', {
 			text: 'Add custom URL links that will appear as icons in the left ribbon sidebar.'
@@ -312,7 +316,7 @@ class RibbonUrlLinksSettingTab extends PluginSettingTab {
 			.setName('Add new link')
 			.setDesc('Add a new URL link to the ribbon')
 			.addButton(button => button
-				.setButtonText('Add Link')
+				.setButtonText('Add link')
 				.setCta()
 				.onClick(() => {
 					new LinkModal(this.app, this.plugin, null, async (link) => {
