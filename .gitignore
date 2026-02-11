@@ -8,7 +8,7 @@ pnpm-debug.log*
 node_modules/
 
 # Build output
-main.js
+dist/
 *.js.map
 
 # Plugin user data

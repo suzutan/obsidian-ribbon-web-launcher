@@ -2,7 +2,7 @@
   "name": "obsidian-ribbon-web-launcher",
   "version": "1.0.0",
   "description": "Pin websites to your Obsidian ribbon sidebar and open them in Web Viewer — with automatic favicons and smart tab management.",
-  "main": "main.js",
+  "main": "dist/main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
     "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
