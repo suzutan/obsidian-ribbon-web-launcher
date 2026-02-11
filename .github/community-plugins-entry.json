@@ -1,7 +1,7 @@
 {
   "id": "ribbon-web-launcher",
   "name": "Ribbon Web Launcher",
-  "author": "suzutan",
+  "author": "Suzuka Asagiri",
   "description": "Pin websites to your Obsidian ribbon sidebar and open them in Web Viewer — with automatic favicons and smart tab management.",
   "repo": "suzutan/obsidian-ribbon-web-launcher"
 }

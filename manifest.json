@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "minAppVersion": "1.8.0",
   "description": "Pin websites to your Obsidian ribbon sidebar and open them in Web Viewer — with automatic favicons and smart tab management.",
-  "author": "suzutan",
+  "author": "Suzuka Asagiri",
   "authorUrl": "https://github.com/suzutan",
   "isDesktopOnly": true
 }
