@@ -1,0 +1,69 @@
+name: Release Obsidian Plugin
+
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Type check & build
+        run: pnpm run build
+
+      - name: Extract version info
+        id: version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          VERSION=${VERSION#v}
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Create Release with Assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          body: |
+            ## Version ${{ steps.version.outputs.version }}
+
+            ### Installation
+
+            - **Via Obsidian Plugin Browser**: Search for "Ribbon Web Launcher" in Community Plugins
+            - **Manual Install**: Extract files to `.obsidian/plugins/ribbon-web-launcher/`
+
+            ### Files
+
+            - `main.js` - Plugin bundle
+            - `manifest.json` - Plugin metadata
+            - `styles.css` - Icon styling
+          files: |
+            dist/main.js
+            manifest.json
+            dist/styles.css
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
