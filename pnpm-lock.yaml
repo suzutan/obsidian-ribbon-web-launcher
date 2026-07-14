@@ -24,8 +24,8 @@ importers:
         specifier: 8.63.0
         version: 8.63.0(eslint@9.39.2)(typescript@5.9.3)
       builtin-modules:
-        specifier: 5.0.0
-        version: 5.0.0
+        specifier: 5.3.0
+        version: 5.3.0
       esbuild:
         specifier: 0.28.1
         version: 0.28.1
@@ -518,8 +518,8 @@ packages:
     resolution: {integrity: sha512-7oFy703dxfY3/NLxC1fh2SUCQ0H9rmAY+5EpDVfXjUTTs+HEwR2nYaqLv+GWcTsumwxPfiz6CzCNkwXwBUwqCA==}
     engines: {node: 18 || 20 || >=22}
 
-  builtin-modules@5.0.0:
-    resolution: {integrity: sha512-bkXY9WsVpY7CvMhKSR6pZilZu9Ln5WDrKVBUXf2S443etkmEO4V58heTecXcUIsNsi4Rx8JUO4NfX1IcQl4deg==}
+  builtin-modules@5.3.0:
+    resolution: {integrity: sha512-hMQUl2bUFG339QygPM97E+mc8OY1IAchORZxm4a/frcYwKzozMzRVDBwHW0NjOqGElLm2O37AVQE8ikxlZHrMQ==}
     engines: {node: '>=18.20'}
 
   call-bind-apply-helpers@1.0.2:
@@ -1372,12 +1372,6 @@ packages:
     resolution: {integrity: sha512-moYoCvkNUAPCxSW9jmHmRElhm4tVJpHL8ItC/+uYD0EpPSFXbck7yREz9tNdJVTSpHVod8+HoipcpbQ0oE6gsw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  ts-api-utils@2.4.0:
-    resolution: {integrity: sha512-3TaVTaAv2gTiMB35i3FiGJaRfwb3Pyn/j3m/bfAvGe8FB7CF6u+LMYqYlDh7reQf7UNvoTvdfAqHGmPGOSsPmA==}
-    engines: {node: '>=18.12'}
-    peerDependencies:
-      typescript: '>=4.8.4'
-
   ts-api-utils@2.5.0:
     resolution: {integrity: sha512-OJ/ibxhPlqrMM0UiNHJ/0CKQkoKF243/AEmplt3qpRgkW8VG7IfOS41h7V8TjITqdByHzrjcS/2si+y4lIh8NA==}
     engines: {node: '>=18.12'}
@@ -1696,7 +1690,7 @@ snapshots:
       eslint: 9.39.2
       ignore: 7.0.5
       natural-compare: 1.4.0
-      ts-api-utils: 2.4.0(typescript@5.9.3)
+      ts-api-utils: 2.5.0(typescript@5.9.3)
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -1743,8 +1737,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.55.0(typescript@5.9.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.55.0(typescript@5.9.3)
-      '@typescript-eslint/types': 8.55.0
+      '@typescript-eslint/tsconfig-utils': 8.63.0(typescript@5.9.3)
+      '@typescript-eslint/types': 8.63.0
       debug: 4.4.3
       typescript: 5.9.3
     transitivePeerDependencies:
@@ -1784,7 +1778,7 @@ snapshots:
       '@typescript-eslint/utils': 8.55.0(eslint@9.39.2)(typescript@5.9.3)
       debug: 4.4.3
       eslint: 9.39.2
-      ts-api-utils: 2.4.0(typescript@5.9.3)
+      ts-api-utils: 2.5.0(typescript@5.9.3)
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -1815,7 +1809,7 @@ snapshots:
       minimatch: 9.0.5
       semver: 7.7.4
       tinyglobby: 0.2.15
-      ts-api-utils: 2.4.0(typescript@5.9.3)
+      ts-api-utils: 2.5.0(typescript@5.9.3)
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -1983,7 +1977,7 @@ snapshots:
     dependencies:
       balanced-match: 4.0.4
 
-  builtin-modules@5.0.0: {}
+  builtin-modules@5.3.0: {}
 
   call-bind-apply-helpers@1.0.2:
     dependencies:
@@ -3072,10 +3066,6 @@ snapshots:
   toml-eslint-parser@0.9.3:
     dependencies:
       eslint-visitor-keys: 3.4.3
-
-  ts-api-utils@2.4.0(typescript@5.9.3):
-    dependencies:
-      typescript: 5.9.3
 
   ts-api-utils@2.5.0(typescript@5.9.3):
     dependencies:
